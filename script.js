@@ -74,7 +74,7 @@ const confirmationItemQuantityElement = document.querySelector('.confirmation-it
 const confirmationGrandTotalElement = document.querySelector('#confirmation-grand-total');
 
 let cart = [];
-const storedCart = JSON.parse(localStorage.getItem('cart'));
+const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
 cart = storedCart;
 
 let quantityInt = 0;
@@ -778,6 +778,9 @@ function isInt(inputValue) {
 // Places order and displays confirmation element
 //Additionally clears cart
 function placeOrder() {
+
+    document.querySelector('.main-checkout').style.display = 'none';
+
     window.scrollTo({
         top: 0
     })

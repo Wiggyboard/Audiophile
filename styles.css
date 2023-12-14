@@ -110,7 +110,7 @@ button,
     z-index: 3;
     display: none;
     flex-direction: column;
-    height: 100dvh;
+    height: 100vh;
     min-width: 30rem;
     max-width: 20%;
     background: var(--light-black);
@@ -1118,6 +1118,7 @@ main {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-radius: 1rem;
     /* object-position: center; */
 }
 
@@ -2074,6 +2075,11 @@ input:focus {
         position: relative;
     }
 
+    #gallery-section {
+        display: flex;
+        flex-direction: column;
+    }
+
     .recommended {
         margin-bottom: 5rem;
     }
@@ -2088,7 +2094,7 @@ input:focus {
     }
 
     .recommended img {
-        height: 80dvw;
+        height: 80vw;
         border-radius: 1rem;
     }
 
@@ -2109,12 +2115,12 @@ input:focus {
         overflow-y: none;
         padding: 2rem;
         max-height: none;
-        height: 100dvh;
-        width: 100dvw;
+        height: 100vh;
+        width: 100vw;
     }
 
     #checkmark-img {
-        margin-top: 2rem;
+        margin-top: 10rem;
     }
 
     #confirmation-order-wrapper {
@@ -2131,7 +2137,7 @@ input:focus {
     }
 
     #confirmation-home-button {
-        margin-bottom: 2rem;
+        margin-bottom: 5rem;
     }
 }
 
