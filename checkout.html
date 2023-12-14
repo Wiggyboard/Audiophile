@@ -10,9 +10,28 @@
 
 <body>
 
+    <div id="nav-menu-container">
+        <nav id="nav-menu">
+            <a href="index.html">
+                <button class="header-nav-button" id="home-button">HOME</button>
+            </a>
+            <a href="headphones.html">
+                <button class="header-nav-button" id="headphones-button">HEADPHONES</button>
+            </a>
+            <a href="speakers.html">
+                <button class="header-nav-button" id="speakers-button">SPEAKERS</button>
+            </a>
+            <a href="earphones.html">
+                <button class="header-nav-button" id="earphones-button">EARPHONES</button>
+            </a>
+        </nav>
+    </div>
+
     <div id="header-wrapper">
         <header>
-            <img id="nav-menu-icon" src="images/shared/tablet/icon-hamburger.svg">
+            <button id="nav-menu-btn" onclick="toggleMenu()">
+                <img id="nav-menu-icon" src="images/shared/tablet/icon-hamburger.svg">
+            </button>
             <a href="index.html"><img class="company-logo" src="images/shared/desktop/logo.svg"></a>
             <nav>
                 <a href="index.html">

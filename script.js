@@ -2,12 +2,12 @@ const urlParams = new URLSearchParams(window.location.search);
 const pageId = urlParams.get('id');
 
 // Product elements
-const productImageElement = document.querySelector('.product-img');
-const productCommentElement = document.querySelector('.product-comment');
-const productTitleElement = document.querySelector('.product-title');
-const productCategoryElement = document.querySelector('.product-category');
-const productDescriptionElement = document.querySelector('.product-description');
-const productPriceElement = document.querySelector('.product-price');
+const productImageElement = document.querySelector('.product-x-img');
+const productCommentElement = document.querySelector('.product-x-comment');
+const productTitleElement = document.querySelector('.product-x-title');
+const productCategoryElement = document.querySelector('.product-x-category');
+const productDescriptionElement = document.querySelector('.product-x-description');
+const productPriceElement = document.querySelector('.product-x-price');
 const featuresTextElement = document.querySelector('.features-text');
 const includedItemsElement = document.querySelector('.included-items');
 const includedQuantitiesElement = document.querySelector('.included-quantities');
@@ -140,7 +140,7 @@ function populateProductPage() {
 
 
             // Populate product image
-            if (window.innerWidth < 1140) {
+            if (window.innerWidth < 1140 && window.innerWidth > 800) {
                 const productImage = data[productIndex].image.tablet;
                 productImageElement.setAttribute('src', productImage);
             }
@@ -329,7 +329,15 @@ function changeQuantity(event) {
 // Adds products to cart
 function addToCart() {
     let productName = productTitleElement.textContent;
-    let productImage = productImageElement.attributes.src.value.replace('/desktop/image-product', '');
+    let productImage = null;
+
+    if (productImageElement.attributes.src.value.includes('tablet')) {
+        productImage = productImageElement.attributes.src.value.replace('/tablet/image-product', '');
+    }
+    else {
+        productImage = productImageElement.attributes.src.value.replace('/desktop/image-product', '');
+    }
+
     productImage = productImage.replace('product', 'cart/image');
     const quantity = parseInt(quantityElementText.textContent);
     const price = parseInt(productPriceElement.textContent.replace(/[$ ,]/g, ''));
@@ -826,4 +834,25 @@ function populateConfirmation() {
 // Checks for items in cart before loading checkout page. If cart is empty, redirect home
 if (document.title.includes('Checkout') && cart.length === 0) {
     window.location.href = 'index.html'
+}
+
+
+
+
+
+// Opens/closes hamburger nav menu
+let navMenuOpen = false;
+
+function toggleMenu() {
+    if (!navMenuOpen) {
+        document.querySelector('#nav-menu-container').style.display = 'flex';
+        document.querySelector('#nav-menu-icon').setAttribute('src', 'images/shared/tablet/icon-close-menu.svg');
+        navMenuOpen = true;
+    }
+    else if (navMenuOpen) {
+        document.querySelector('#nav-menu-container').style.display = 'none';
+        document.querySelector('#nav-menu-icon').setAttribute('src', 'images/shared/tablet/icon-hamburger.svg');
+        navMenuOpen = false;
+    }
+
 }
